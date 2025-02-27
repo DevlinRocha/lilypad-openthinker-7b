@@ -5,16 +5,8 @@
     "Spec": {
       "Deal": { "Concurrency": 1 },
       "Docker": {
-        "WorkingDirectory": "/app",
         "Entrypoint": [
-          "/app/src/run_model",
-          "--prompt", {{ .prompt }}
-          {{- if .temperature -}},
-          "--temperature", {{ .temperature }}
-          {{- end -}}
-          {{- if .max_tokens -}},
-          "--max_tokens", {{ .max_tokens }}
-          {{- end -}}
+          "/app/src/run_model", {{ .request }}
         ],
         "Image": "devlinrocha/openthinker-7b@sha256:1c9bd3d2135b38885271d8a29c8a2d964ba294298f967e1f2d08e9cdf40f8687"
       },
